@@ -1,0 +1,2221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Loja Ideal | Calçados e Estilo</title>
+
+<style>
+:root {
+    --preto: #171717;
+    --preto-suave: #242424;
+    --dourado: #b8955b;
+    --dourado-claro: #d6bd91;
+    --branco: #ffffff;
+    --cinza: #f6f6f5;
+    --texto: #333333;
+    --texto-suave: #777777;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--branco);
+    color: var(--texto);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* BARRA SUPERIOR */
+
+.topbar {
+    background: var(--preto);
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+/* CABEÇALHO */
+
+header {
+    background: white;
+    min-height: 95px;
+    padding: 12px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+}
+
+.logo h2 {
+    color: var(--preto);
+    font-size: 23px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.logo span {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--dourado);
+    margin-top: 5px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+nav a {
+    color: #333;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--dourado);
+}
+
+/* BANNER PRINCIPAL */
+
+#inicio {
+    padding: 35px 7% 70px;
+    background: var(--cinza);
+}
+
+.banner {
+    min-height: 390px;
+    background:
+        radial-gradient(circle at 85% 20%, #ffffff18, transparent 35%),
+        linear-gradient(110deg, #171717, #30302d);
+    border-radius: 3px;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 65px 9%;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner::after {
+    content: "IDEAL";
+    position: absolute;
+    right: 4%;
+    bottom: -35px;
+    font-size: clamp(100px, 19vw, 250px);
+    font-weight: bold;
+    color: #ffffff08;
+    pointer-events: none;
+}
+
+.banner-conteudo {
+    max-width: 570px;
+    position: relative;
+    z-index: 1;
+}
+
+.banner .subtitulo {
+    color: var(--dourado-claro);
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.banner h1 {
+    font-size: clamp(35px, 5vw, 58px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.banner p {
+    font-size: 16px;
+    color: #cccccc;
+    line-height: 1.8;
+    margin-bottom: 32px;
+}
+
+.botao {
+    display: inline-block;
+    background: var(--dourado);
+    color: white;
+    padding: 16px 30px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background: white;
+    color: var(--preto);
+}
+
+/* BENEFÍCIOS */
+
+.beneficios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: white;
+    margin-top: 30px;
+    padding: 25px 15px;
+    gap: 15px;
+    text-align: center;
+}
+
+.beneficio {
+    padding: 10px;
+}
+
+.beneficio strong {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+}
+
+.beneficio p {
+    color: var(--texto-suave);
+    font-size: 12px;
+}
+
+/* SEÇÕES GERAIS */
+
+section {
+    padding: 75px 7%;
+    scroll-margin-top: 100px;
+}
+
+.cabecalho-secao {
+    margin-bottom: 35px;
+}
+
+.cabecalho-secao .etiqueta {
+    color: var(--dourado);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.cabecalho-secao h2 {
+    font-size: 30px;
+    color: var(--preto);
+    font-weight: 500;
+}
+
+.cabecalho-secao p {
+    color: var(--texto-suave);
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* CAMPEÕES DE VENDAS */
+
+#campeoes {
+    background: white;
+}
+
+.lista-produtos {
+    display: flex;
+    gap: 22px;
+    overflow-x: auto;
+    padding: 8px 3px 20px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--dourado) #eeeeee;
+}
+
+.produto {
+    flex: 0 0 235px;
+    background: white;
+    border: 1px solid #eeeeee;
+    padding: 13px;
+    scroll-snap-align: start;
+    transition: 0.3s;
+}
+
+.produto:hover {
+    border-color: var(--dourado-claro);
+    transform: translateY(-4px);
+}
+
+.produto-imagem {
+    background: #f7f7f7;
+    overflow: hidden;
+}
+
+.produto img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    transition: transform 0.4s;
+}
+
+.produto:hover img {
+    transform: scale(1.04);
+}
+
+.produto h3 {
+    font-size: 12px;
+    color: var(--preto);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+    margin-top: 15px;
+    min-height: 36px;
+}
+
+.produto .categoria {
+    color: var(--texto-suave);
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-top: 8px;
+    text-transform: uppercase;
+}
+
+/* MARCAS */
+
+#produtos {
+    background: var(--cinza);
+}
+
+.marca {
+    margin-bottom: 55px;
+}
+
+.marca:last-child {
+    margin-bottom: 0;
+}
+
+.marca-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #dddddd;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.marca-titulo h3 {
+    font-size: 21px;
+    letter-spacing: 2px;
+    color: var(--preto);
+}
+
+.marca-titulo span {
+    font-size: 10px;
+    color: var(--dourado);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* SOBRE NÓS */
+
+#sobre {
+    background: white;
+}
+
+.sobre-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+    margin-bottom: 65px;
+}
+
+.sobre-container:last-child {
+    margin-bottom: 0;
+}
+
+.sobre-container.invertido .sobre-imagem {
+    order: 2;
+}
+
+.sobre-imagem {
+    height: 360px;
+    background: #eeeeee;
+    overflow: hidden;
+}
+
+.sobre-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sobre-texto .etiqueta {
+    color: var(--dourado);
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.sobre-texto h2 {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--preto);
+    margin-bottom: 22px;
+}
+
+.sobre-texto p {
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.9;
+    text-align: justify;
+}
+
+/* DESTAQUE INSTITUCIONAL */
+
+.destaque-institucional {
+    background: var(--preto);
+    color: white;
+    text-align: center;
+    padding: 65px 20px;
+}
+
+.destaque-institucional span {
+    color: var(--dourado-claro);
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+.destaque-institucional h2 {
+    font-size: 30px;
+    font-weight: 400;
+    margin: 20px 0 12px;
+}
+
+.destaque-institucional p {
+    color: #cccccc;
+    font-size: 14px;
+}
+
+/* RODAPÉ */
+
+footer {
+    background: #111111;
+    color: white;
+    padding: 45px 7% 25px;
+}
+
+.footer-conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    padding-bottom: 30px;
+}
+
+.footer-logo h2 {
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+.footer-logo p {
+    color: var(--dourado-claro);
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 8px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-links a {
+    color: #cccccc;
+    font-size: 12px;
+}
+
+.footer-links a:hover {
+    color: var(--dourado);
+}
+
+.copyright {
+    border-top: 1px solid #333333;
+    padding-top: 22px;
+    color: #888888;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* ORGANIZAÇÃO DOS PRODUTOS POR CATEGORIA */
+.categorias-produtos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 5px 0 48px;
+}
+
+.categorias-produtos a {
+    display: inline-block;
+    border: 1px solid #d8c7a8;
+    color: var(--preto);
+    padding: 11px 20px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.categorias-produtos a:hover {
+    background: var(--preto);
+    border-color: var(--preto);
+    color: white;
+}
+
+.grupo-categoria {
+    margin-bottom: 65px;
+    scroll-margin-top: 115px;
+}
+
+.grupo-categoria:last-child {
+    margin-bottom: 0;
+}
+
+.categoria-cabecalho {
+    border-left: 3px solid var(--dourado);
+    padding: 4px 0 5px 18px;
+    margin-bottom: 32px;
+}
+
+.categoria-cabecalho span {
+    color: var(--dourado);
+    font-size: 10px;
+    letter-spacing: 2.5px;
+}
+
+.categoria-cabecalho h3 {
+    color: var(--preto);
+    font-size: 25px;
+    font-weight: 500;
+    margin: 8px 0;
+}
+
+.categoria-cabecalho p {
+    color: var(--texto-suave);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 850px) {
+
+    header {
+        padding: 12px 4%;
+    }
+
+    nav {
+        gap: 18px;
+    }
+
+    section {
+        padding: 60px 5%;
+    }
+
+    #inicio {
+        padding: 25px 5% 50px;
+    }
+
+    .sobre-container {
+        gap: 30px;
+    }
+
+    .sobre-imagem {
+        height: 300px;
+    }
+
+    
+}
+
+@media (max-width: 600px) {
+
+    .topbar {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 13px;
+        padding: 12px 10px;
+    }
+
+    .logo img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .logo h2 {
+        font-size: 19px;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 10px;
+        letter-spacing: 0.5px;
+    }
+
+    #inicio {
+        padding: 18px 4% 40px;
+    }
+
+    .banner {
+        min-height: 340px;
+        padding: 45px 25px;
+    }
+
+    .banner h1 {
+        font-size: 37px;
+    }
+
+    .banner p {
+        font-size: 14px;
+    }
+
+    .banner .subtitulo {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .beneficios {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        padding: 15px;
+    }
+
+    .beneficio {
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .beneficio:last-child {
+        border-bottom: none;
+    }
+
+    section {
+        padding: 48px 5%;
+    }
+
+    .cabecalho-secao h2 {
+        font-size: 25px;
+    }
+
+    .produto {
+        flex-basis: 190px;
+        padding: 10px;
+    }
+
+    .lista-produtos {
+        gap: 13px;
+    }
+
+    .categorias-produtos {
+        gap: 8px;
+        margin-bottom: 38px;
+    }
+
+    .categorias-produtos a {
+        padding: 10px 13px;
+        font-size: 9px;
+    }
+
+    .categoria-cabecalho h3 {
+        font-size: 22px;
+    }
+
+    .marca-titulo h3 {
+        font-size: 17px;
+    }
+
+    .marca-titulo span {
+        font-size: 9px;
+    }
+
+    .sobre-container {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        margin-bottom: 48px;
+    }
+
+    .sobre-container.invertido .sobre-imagem {
+        order: 0;
+    }
+
+    .sobre-imagem {
+        height: 250px;
+    }
+
+    .sobre-texto h2 {
+        font-size: 25px;
+    }
+
+    .sobre-texto p {
+        font-size: 13px;
+    }
+
+    .destaque-institucional {
+        padding: 50px 20px;
+    }
+
+    .destaque-institucional h2 {
+        font-size: 25px;
+    }
+
+    .footer-conteudo {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+    
+}
+
+.vendedoras {
+    padding: 80px 8%;
+    background: #f8f7f5;
+    text-align: center;
+    scroll-margin-top: 100px;
+}
+
+.titulo-secao span {
+    color: #b8955b;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.titulo-secao h2 {
+    font-size: 30px;
+    color: #171717;
+    margin: 12px 0;
+}
+
+.titulo-secao p {
+    color: #777;
+    margin-bottom: 40px;
+}
+
+.lista-vendedoras {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    padding: 10px 5px 25px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.lista-vendedoras::-webkit-scrollbar {
+    height: 6px;
+}
+
+.lista-vendedoras::-webkit-scrollbar-thumb {
+    background: #b8955b;
+    border-radius: 10px;
+}
+
+.card-vendedora {
+    flex: 0 0 250px;
+    scroll-snap-align: start;
+    background: white;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.card-vendedora {
+    background: white;
+    width: 250px;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.card-vendedora:hover {
+    transform: translateY(-5px);
+}
+
+.card-vendedora img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.card-vendedora h3 {
+    color: #171717;
+    margin: 18px 0;
+}
+
+.card-vendedora a {
+    display: block;
+    background: #b8955b;
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.card-vendedora a:hover {
+    background: #171717;
+}
+
+
+/* DEPARTAMENTOS ADICIONAIS */
+.departamento-sem-produtos {
+    border: 1px solid #e7e2d9;
+    background: #ffffff;
+    padding: 18px 20px;
+    color: var(--texto-suave);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.subcategorias-casa {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin: 5px 0 22px;
+}
+
+.subcategoria-casa {
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-top: 2px solid var(--dourado);
+    padding: 20px;
+}
+
+.subcategoria-casa h4 {
+    color: var(--preto);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.subcategoria-casa p {
+    color: var(--texto-suave);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .subcategorias-casa {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .subcategoria-casa {
+        padding: 16px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BARRA SUPERIOR -->
+<div class="topbar">
+    LOJA IDEAL • FAZEMOS DE TUDO PARA ENCANTAR E SURPREENDER VOCÊ!
+</div>
+
+<!-- CABEÇALHO -->
+<header>
+
+    <a href="#inicio" class="logo">
+        <img src="imagens/logo.png" alt="Logo Loja Ideal">
+
+        <div>
+            <h2>LOJA IDEAL</h2>
+            <span>CALÇADOS & ESTILO</span>
+        </div>
+    </a>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#campeoes">Destaques</a>
+        <a href="#produtos">Categorias</a>
+        <a href="#sobre">Quem Somos</a>
+        <a href="#vendedoras">Nossas Vendedoras</a>
+    </nav>
+
+</header>
+
+<!-- INÍCIO -->
+<section id="inicio">
+
+    <div class="banner">
+
+        <div class="banner-conteudo">
+
+            <div class="subtitulo">
+                Tradição e qualidade desde 2008
+            </div>
+
+            <h1>Seu estilo começa pelos seus passos.</h1>
+
+            <p>
+                Descubra uma seleção de calçados que unem
+                conforto, beleza e qualidade para acompanhar
+                você em todos os momentos.
+            </p>
+
+            <a href="#produtos" class="botao">
+                Conheça nossos produtos
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="beneficios">
+
+        <div class="beneficio">
+            <strong>VARIEDADE</strong>
+            <p>Opções para todos os estilos e ocasiões.</p>
+        </div>
+
+        <div class="beneficio">
+            <strong>QUALIDADE</strong>
+            <p>Marcas reconhecidas e produtos selecionados.</p>
+        </div>
+
+        <div class="beneficio">
+            <strong>TRADIÇÃO</strong>
+            <p>Uma história construída desde 2008.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CAMPEÕES DE VENDAS -->
+<section id="campeoes">
+
+    <div class="cabecalho-secao">
+        <div class="etiqueta">Os favoritos dos nossos clientes</div>
+        <h2>Campeões de Vendas</h2>
+        <p>Conheça alguns dos produtos que fazem sucesso na Loja Ideal.</p>
+    </div>
+
+    <div class="lista-produtos">
+
+        <div class="produto">
+            <div class="produto-imagem">
+                <img src="imagens/campeoes/destaque1.png"
+                alt="Chinelo Hit Petite Jolie">
+            </div>
+            <h3>CHINELO HIT PETITE JOLIE</h3>
+            <div class="categoria">Destaque</div>
+        </div>
+
+        <div class="produto">
+            <div class="produto-imagem">
+                <img src="imagens/campeoes/destaque2.png"
+                alt="Sandália Modare Lacinho">
+            </div>
+            <h3>SANDÁLIA MODARE LACINHO</h3>
+            <div class="categoria">Destaque</div>
+        </div>
+
+        <div class="produto">
+            <div class="produto-imagem">
+                <img src="imagens/campeoes/destaque3.png"
+                alt="Sapatilha Moleca">
+            </div>
+            <h3>SAPATILHA MOLECA</h3>
+            <div class="categoria">Destaque</div>
+        </div>
+
+        <div class="produto">
+            <div class="produto-imagem">
+                <img src="imagens/campeoes/destaque4.png"
+                alt="Tênis Casual Actvitta">
+            </div>
+            <h3>TÊNIS CASUAL ACTVITTA</h3>
+            <div class="categoria">Destaque</div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PRODUTOS -->
+<section id="produtos">
+
+    <div class="cabecalho-secao">
+        <div class="etiqueta">Encontre seu estilo</div>
+        <h2>Explore nossos departamentos</h2>
+        <p>Encontre produtos para todos os estilos, momentos e necessidades.</p>
+    </div>
+
+    <!-- NAVEGAÇÃO POR DEPARTAMENTO -->
+    <div class="categorias-produtos" aria-label="Departamentos da Loja Ideal">
+        <a href="#categoria-feminino">Feminino</a>
+        <a href="#categoria-masculino">Masculino</a>
+        <a href="#categoria-esportivo">Esportivo</a>
+        <a href="#categoria-infantil">Infantil</a>
+        <a href="#categoria-cama-mesa-banho">Cama, mesa e banho</a>
+    </div>
+
+    <!-- CATEGORIA: ESPORTIVO -->
+    <!-- fim da categoria esportivo -->
+
+    <!-- DEPARTAMENTO: FEMININO -->
+    <div class="grupo-categoria" id="categoria-feminino">
+        <div class="categoria-cabecalho">
+            <span>ESTILO PARA TODOS OS MOMENTOS</span>
+            <h3>Feminino</h3>
+            <p>Calçados femininos para diferentes estilos e ocasiões.</p>
+        </div>
+
+    <!-- MODARE -->
+    <div class="marca">
+
+        <div class="marca-titulo">
+            <h3>MODARE</h3>
+            <span>Conforto e elegância</span>
+        </div>
+
+        <div class="lista-produtos">
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto1-marrom.png" alt="Tênis Casual Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto1-preto.png" alt="Tênis Casual Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto2.png" alt="Sandália Ortopédica Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto3.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto4.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto5.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto6.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto7.jpg" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto8.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto9.jpg" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto10.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto11.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto12.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto13.jpg" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto14.jpg" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto16.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto17-nude.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto17-preto.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto18-marrom.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto18-preto.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto18-dourado.jpg" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto18-pretopreto.jpg" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto19-creme.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto19-nude.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto19-preto.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto20.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto21-creme.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto21-preto.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto22.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto23.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto24-creme.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto25.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto26-creme.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto26-marrom.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto26-nude.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto26-preto.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto27.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto29.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto30.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto31-creme.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto31-nude.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto32.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto33.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto34.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto35.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto36.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto37-branco.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto37-nude.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto38.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto39.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto41.png" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto42-marrom.jpg" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/modare/produto42-preto.jpg" alt="Sandália Papete Modare">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CAMPESI -->
+    <div class="marca">
+
+        <div class="marca-titulo">
+            <h3>CAMPESÍ</h3>
+            <span>Conforto e elegância</span>
+        </div>
+
+        <div class="lista-produtos">
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/campesi/produto1-nude.jpg" alt="Tênis Casual Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/campesi/produto1-preto.jpg" alt="Tênis Casual Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/campesi/produto2.jpg" alt="Tênis Casual Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/campesi/produto3.jpg" alt="Tênis Casual Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/campesi/produto4.jpg" alt="Tênis Casual Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/campesi/produto5.jpg" alt="Tênis Casual Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/campesi/produto6.jpg" alt="Tênis Casual Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/campesi/produto7.jpg" alt="Tênis Casual Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/campesi/produto8.jpg" alt="Tênis Casual Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/campesi/produto9.jpg" alt="Tênis Casual Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/campesi/produto10.jpg" alt="Tênis Casual Modare">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- COMFORTFLEX -->
+    <div class="marca">
+
+        <div class="marca-titulo">
+            <h3>COMFORTFLEX</h3>
+            <span>Conforto e elegância</span>
+        </div>
+
+        <div class="lista-produtos">
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/comfortflex/produto1.png" alt="Tênis Casual Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/comfortflex/produto2.png" alt="Tênis Casual Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/comfortflex/produto3.png" alt="Tênis Casual Modare">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/comfortflex/produto4.png" alt="Tênis Casual Modare">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RAMARIM -->
+    <div class="marca">
+
+        <div class="marca-titulo">
+            <h3>RAMARIM</h3>
+            <span>Moda e personalidade</span>
+        </div>
+
+        <div class="lista-produtos">
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/ramarim/produto1.jpg" alt="Tênis Casual Ramarim">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/ramarim/produto2.jpg" alt="Salto Médio Bloco Ramarim">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/ramarim/produto3.jpg" alt="Salto Alto Fino Ramarim">
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/ramarim/produto4.jpg" alt="Salto Alto Bloco Ramarim">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    </div><!-- fim do departamento feminino -->
+
+
+    <!-- DEPARTAMENTO: MASCULINO -->
+    <div class="grupo-categoria" id="categoria-masculino">
+        <div class="categoria-cabecalho">
+            <span>ESTILO E PERSONALIDADE</span>
+            <h3>Masculino</h3>
+            <p>Calçados e opções masculinas. As marcas e os modelos serão apresentados neste espaço.</p>
+        </div>
+        <div class="departamento-sem-produtos">
+            <p>Novidades masculinas em breve.</p>
+        </div>
+    </div>
+
+    <div class="grupo-categoria" id="categoria-esportivo">
+        <div class="categoria-cabecalho">
+            <span>PARA ACOMPANHAR SEU RITMO</span>
+            <h3>Esportivo</h3>
+            <p>Modelos masculinos e femininos das marcas FILA e Olympikus para seus treinos e para o dia a dia.</p>
+        </div>
+
+    <!-- FILA -->
+    <div class="marca">
+
+        <div class="marca-titulo">
+            <h3>FILA</h3>
+            <span>Performance e conforto</span>
+        </div>
+
+        <div class="lista-produtos">
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto1.jpg" alt="Olympikus Agora">
+                </div>
+                <h3>RACER FOR ALL</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto2.jpg" alt="Olympikus Nuvem">
+                </div>
+                <h3>F VIRTUOS</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto3.jpg" alt="Olympikus Dynamic">
+                </div>
+                <h3>EURO JOGGER VINTAGE</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto4.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>PROGRESS</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto5.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>RECOVERY</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto6.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>RACER MARKER</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto7.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>RACER BRAVE RUN</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto8.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>ACER</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto9.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>COMET 2</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto10.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>RECOVERY</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto11.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>AGILE</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto12.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>OUTRUN</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto13.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>RISE UP</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto14.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>FASTNESS</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto15.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>STEP</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto16.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>DUALITY 2</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto18.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>COURT 80</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto19.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>REVENGE</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto20.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>ACD CLASSIC</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto21.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>VORTEX</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto22.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>RACER FASTPACE</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto23.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>STREET FIT 2</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto24.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>RECOVERY</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto25.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>RIDE 2</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/fila/produto26.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>AERO SKYFOAM</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- OLYMPIKUS -->
+    <div class="marca">
+
+        <div class="marca-titulo">
+            <h3>OLYMPIKUS</h3>
+            <span>Performance e conforto</span>
+        </div>
+
+        <div class="lista-produtos">
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto1.jpg" alt="Olympikus Agora">
+                </div>
+                <h3>INDEX 4</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto2.jpg" alt="Olympikus Nuvem">
+                </div>
+                <h3>INDEX 4</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto3.png" alt="Olympikus Dynamic">
+                </div>
+                <h3>ELEVADO</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto4.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>ELEVADO</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto5.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>FLUIR</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto6.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>FLUIR</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto7.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>CHALLENGER 6</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto8.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>VELOZ 4</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto9.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>GRAU</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto10.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>VOA 3</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto11.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>VOLTA</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto12.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>QUARTZO</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto13.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>BEATS</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto14.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>SAGAZ</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto15.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>SOMA 2</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto16.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>INVERSE 2</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto17.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>INVERSE 2</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto18.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>CYBER 4</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto19.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>NIVEL</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto20.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>VIRTUOSE</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto21.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>VOLCAN 2</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto22.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>DYNAMIC</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto23.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>EROS 165</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto24.png" alt="Olympikus Elevado">
+                </div>
+                <h3>NUVEM</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto25.png" alt="Olympikus Elevado">
+                </div>
+                <h3>AGORA</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto26.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>SWIFT 5</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto27.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>CHALLENGER 6</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto28.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>PASSO</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto29.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>ATMOS 101</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto30.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>CITRUS 2</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto31.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>ULTRALEVE 749</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto32.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>FLUTUA 2</h3>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">
+                    <img src="imagens/olympikus/produto33.jpg" alt="Olympikus Elevado">
+                </div>
+                <h3>INTUIT</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
+
+    <!-- DEPARTAMENTO: INFANTIL -->
+    <div class="grupo-categoria" id="categoria-infantil">
+        <div class="categoria-cabecalho">
+            <span>PARA ACOMPANHAR CADA DESCOBERTA</span>
+            <h3>Infantil</h3>
+            <p>Calçados infantis para acompanhar os pequenos em todos os momentos.</p>
+        </div>
+        <div class="departamento-sem-produtos">
+            <p>Novidades infantis em breve.</p>
+        </div>
+    </div>
+
+    <!-- DEPARTAMENTO: CAMA, MESA E BANHO -->
+    <div class="grupo-categoria" id="categoria-cama-mesa-banho">
+        <div class="categoria-cabecalho">
+            <span>CONFORTO E CUIDADO PARA SUA CASA</span>
+            <h3>Cama, mesa e banho</h3>
+            <p>Produtos para deixar sua casa mais confortável e acolhedora.</p>
+        </div>
+        <div class="subcategorias-casa" aria-label="Categorias de cama, mesa e banho">
+            <div class="subcategoria-casa">
+                <h4>Toalhas</h4>
+                <p>Toalhas de banho, rosto e lavabo.</p>
+            </div>
+            <div class="subcategoria-casa">
+                <h4>Travesseiros</h4>
+                <p>Opções para mais conforto na hora de descansar.</p>
+            </div>
+            <div class="subcategoria-casa">
+                <h4>Jogos de lençóis</h4>
+                <p>Conjuntos para renovar sua cama.</p>
+            </div>
+        </div>
+        <div class="departamento-sem-produtos">
+            <p>Os produtos estarão disponíveis nesta seção em breve.</p>
+        </div>
+    </div>
+
+</section>
+
+<!-- SOBRE NÓS -->
+<section id="sobre">
+
+    <div class="cabecalho-secao">
+        <div class="etiqueta">Conheça nossa essência</div>
+        <h2>Mais que uma loja, uma história.</h2>
+        <p>Conheça as pessoas e os valores que fazem a Loja Ideal acontecer.</p>
+    </div>
+
+    <!-- HISTÓRIA -->
+    <div class="sobre-container">
+
+        <div class="sobre-imagem">
+            <img src="imagens/nossaloja.jpg" alt="Nossa loja">
+        </div>
+
+        <div class="sobre-texto">
+            <div class="etiqueta">Nossa trajetória</div>
+            <h2>Desde 2008, construindo sonhos.</h2>
+
+            <p>
+                A Loja Ideal nasceu de um grande sonho: oferecer qualidade,
+                variedade e carinho em cada atendimento. O que começou como
+                um sonho se tornou uma história construída com muito trabalho,
+                dedicação e, principalmente, a confiança de nossos clientes.
+
+                Ao longo dessa jornada, crescemos, evoluímos e conquistamos
+                nosso espaço. Mais do que uma loja, somos uma história de
+                dedicação, pessoas e sonhos que continuam crescendo.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- EQUIPE -->
+    <div class="sobre-container invertido">
+
+        <div class="sobre-imagem">
+            <img src="imagens/nossaequipe.jpg" alt="Nossa equipe">
+        </div>
+
+        <div class="sobre-texto">
+            <div class="etiqueta">Quem faz acontecer</div>
+            <h2>Uma equipe dedicada a você.</h2>
+
+            <p>
+                Por trás da Loja Ideal, existe uma equipe que trabalha com
+                dedicação, compromisso e paixão pelo que faz. Somos pessoas
+                que compartilham o mesmo propósito: oferecer a melhor
+                experiência aos nossos clientes, sempre com atenção,
+                respeito e carinho.
+
+                Cada integrante da nossa equipe tem um papel importante
+                na nossa história e contribui diariamente para que tudo
+                aconteça da melhor forma.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- COMPROMISSO -->
+    <div class="sobre-container">
+
+        <div class="sobre-imagem">
+            <img src="imagens/nossa empresa.jpg" alt="Nossa empresa">
+        </div>
+
+        <div class="sobre-texto">
+            <div class="etiqueta">Nosso compromisso</div>
+            <h2>Qualidade em cada detalhe.</h2>
+
+            <p>
+                Na Loja Ideal, você encontra variedade, qualidade e as
+                melhores opções em calçados para todos os estilos e ocasiões.
+
+                Trabalhamos com marcas reconhecidas no mercado, oferecendo
+                produtos que unem conforto, beleza e qualidade para acompanhar
+                você em todos os momentos.
+
+                Nosso compromisso é proporcionar uma experiência de compra
+                agradável, com atenção às necessidades de cada cliente.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="vendedoras" id="vendedoras">
+    <div class="titulo-secao">
+        <span>ATENDIMENTO ESPECIAL</span>
+        <h2>Conheça nossa VITRINE VIVA IDEAL</h2>
+        <p>Escolha com quem deseja falar. Estamos prontas para atender você!</p>
+    </div>
+
+    <div class="lista-vendedoras">
+
+        <div class="card-vendedora">
+            <img src="imagens/vendedoras/eriane.jpg" alt="Foto da vendedora">
+            <h3>ERIANE</h3>
+            <a href="https://wa.me/5577999022119"
+               target="_blank"
+               rel="noopener noreferrer">
+                Falar pelo WhatsApp
+            </a>
+        </div>
+
+        <div class="card-vendedora">
+            <img src="imagens/vendedoras/luana.jpg" alt="Foto da vendedora">
+            <h3>LUANA</h3>
+            <a href="https://wa.me/5577991718491"
+               target="_blank"
+               rel="noopener noreferrer">
+                Falar pelo WhatsApp
+            </a>
+        </div>
+
+        <div class="card-vendedora">
+            <img src="imagens/vendedoras/lucelia.jpg" alt="Foto da vendedora">
+            <h3>LUCÉLIA</h3>
+            <a href="https://wa.me/5577988011438"
+               target="_blank"
+               rel="noopener noreferrer">
+                Falar pelo WhatsApp
+            </a>
+        </div>
+
+        <div class="card-vendedora">
+            <img src="imagens/vendedoras/marta.jpg" alt="Foto da vendedora">
+            <h3>MARTA</h3>
+            <a href="https://wa.me/5577988047786"
+               target="_blank"
+               rel="noopener noreferrer">
+                Falar pelo WhatsApp
+            </a>
+        </div>
+
+        <div class="card-vendedora">
+            <img src="imagens/vendedoras/michelle.jpg" alt="Foto da vendedora">
+            <h3>MICHELLE</h3>
+            <a href="https://wa.me/5577999254446"
+               target="_blank"
+               rel="noopener noreferrer">
+                Falar pelo WhatsApp
+            </a>
+        </div>
+
+        <div class="card-vendedora">
+            <img src="imagens/vendedoras/paula.jpg" alt="Foto da vendedora">
+            <h3>ANA PAULA</h3>
+            <a href="https://wa.me/5577981375051"
+               target="_blank"
+               rel="noopener noreferrer">
+                Falar pelo WhatsApp
+            </a>
+        </div>
+
+        <div class="card-vendedora">
+            <img src="imagens/vendedoras/robelia.jpg" alt="Foto da vendedora">
+            <h3>ROBELIA</h3>
+            <a href="https://wa.me/5599991608210"
+               target="_blank"
+               rel="noopener noreferrer">
+                Falar pelo WhatsApp
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- DESTAQUE FINAL -->
+<div class="destaque-institucional">
+
+    <span>LOJA IDEAL • DESDE 2008</span>
+
+    <h2>Obrigado por fazer parte da nossa história.</h2>
+
+    <p>Seguimos juntos, sempre buscando oferecer o melhor.</p>
+
+</div>
+
+<!-- RODAPÉ -->
+<footer>
+
+    <div class="footer-conteudo">
+
+        <div class="footer-logo">
+            <h2>LOJA IDEAL</h2>
+            <p>CALÇADOS & ESTILO</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="#inicio">Início</a>
+            <a href="#campeoes">Destaques</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#sobre">Quem Somos</a>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 LOJA IDEAL - Todos os direitos reservados.
+    </div>
+
+</footer>
+
+</body>
+</html>
